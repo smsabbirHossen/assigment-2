@@ -943,8 +943,6 @@ select:hover {
 .show-alert{
   padding: 10px;
   background: rgb(250, 90, 90);
-  color:#fff;
-  font-style: bold;
   border-radius: 5px;
   text-align: center;
   margin-top: 20px;
@@ -952,6 +950,8 @@ select:hover {
 }
 .show-alert p{
   color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 @media (min-width: 1024px) {
   .booking-table th {

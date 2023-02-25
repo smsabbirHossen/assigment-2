@@ -15,22 +15,21 @@ const BookingForm = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    if (booking.length < 3) {
-      const booking = {
-        destinationFrom: destinationFrom,
-        destinationTo: destinationTo,
-        date: date,
-        person: person,
-        ticket: ticket,
-        id: id,
-      };
-      dispatch(addBooking(booking));
-      setDestinationFrom("");
-      setDestinationTo("");
-      setDate("");
-      setPerson("");
-      setTicket("");
-    }
+
+    const booking = {
+      destinationFrom: destinationFrom,
+      destinationTo: destinationTo,
+      date: date,
+      person: person,
+      ticket: ticket,
+      id: id,
+    };
+    dispatch(addBooking(booking));
+    setDestinationFrom("");
+    setDestinationTo("");
+    setDate("");
+    setPerson("");
+    setTicket("");
   };
   return (
     <div className="mt-[160px] mx-4 md:mt-[160px] relative">
@@ -150,6 +149,7 @@ const BookingForm = () => {
             type="submit"
             id="lws-addCity"
             onClick={() => setId((prev) => prev + 1)}
+            disabled={booking.length >= 3}
           >
             <svg
               width="15px"

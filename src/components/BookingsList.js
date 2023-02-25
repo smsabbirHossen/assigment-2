@@ -13,34 +13,48 @@ const BookingsList = () => {
 
   return (
     <div className="table-container">
-      <table className="booking-table">
-        <thead className="bg-gray-100/50">
-          <tr className="text-black text-left">
-            <th>Destination From</th>
-            <th>Destination To</th>
-            <th className="text-center">Journey Date</th>
-            <th className="text-center">Guests</th>
-            <th className="text-center">Class</th>
-            <th className="text-center">Delete</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
-          {bookings &&
-            bookings.map((booking) => (
-              <Booking
-                key={booking.id}
-                booking={booking}
-                handelDelete={handelDelete}
-              />
-            ))}
-        </tbody>
-      </table>
-      {bookings.length >= 3 ? (
-        <div className="show-alert">
-          <p> Your booking limit is over now . so you don't add new booking.</p>
+      {bookings.length >= 1 ? (
+        <div className="table-container">
+          <table className="booking-table">
+            <thead className="bg-gray-100/50">
+              <tr className="text-black text-left">
+                <th>Destination From</th>
+                <th>Destination To</th>
+                <th className="text-center">Journey Date</th>
+                <th className="text-center">Guests</th>
+                <th className="text-center">Class</th>
+                <th className="text-center">Delete</th>
+              </tr>
+            </thead>
+            <tbody
+              className="divide-y divide-gray-300/20"
+              id="lws-previewBooked"
+            >
+              {bookings &&
+                bookings.map((booking) => (
+                  <Booking
+                    key={booking.id}
+                    booking={booking}
+                    handelDelete={handelDelete}
+                  />
+                ))}
+            </tbody>
+          </table>
+          {bookings.length >= 3 ? (
+            <div className="show-alert">
+              <p>
+                {" "}
+                Your booking limit is over now . so you don't add new booking.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       ) : (
-        ""
+        <div className="show-alert">
+          <p>please add new booking.</p>
+        </div>
       )}
     </div>
   );
