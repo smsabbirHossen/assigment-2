@@ -6,7 +6,7 @@ import Booking from "./Booking";
 const BookingsList = () => {
   const dispatch = useDispatch();
   const bookings = useSelector((state) => state.booking);
-  console.log(bookings);
+
   const handelDelete = (id) => {
     dispatch(cancelBooking(id));
   };
@@ -43,8 +43,7 @@ const BookingsList = () => {
           {bookings.length >= 3 ? (
             <div className="show-alert">
               <p>
-                {" "}
-                Your booking limit is over now . so you don't add new booking.
+                Your booking limit is over now . so you can't add new booking.
               </p>
             </div>
           ) : (
